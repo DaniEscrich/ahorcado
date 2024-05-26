@@ -73,6 +73,9 @@ class juegoAhorcado:
     categorias = 'FRUTAS'
     respuestas = ('PERA PLATANO UVA MANZANA MELOCOTON KIWI ALBARICOQUE CEREZA CIRUELA FRESA GRANADA HIGO LIMA LIMON '
                   'MANDARINA NARANJA MELON MORA NISPERO PIÑA POMELO SANDIA ').split()
+
+
+
     def jugar(self, nombre):
 
         letrasIncorrectas = []
@@ -99,27 +102,33 @@ class juegoAhorcado:
             else:
                 letrasIncorrectas.append(guardarLetras)
 
+
                 if len(letrasIncorrectas) == len(self.estados) - 1:
                     self.dibujar(letrasIncorrectas, letrasCorrectas, secreto)
                     print('Demasiados intentos!')
                     print('La palabra era "{}"'.format(secreto))
                     break
 
+
+
+
+
     def dibujar(self, listaDibujo, letraCorrecta, secreto):
+        contador = 6
         print(self.estados[len(listaDibujo)])
         print('La categoría es: ', self.categorias)
         print()
-
         print('Letras incorrectas: ', end='')
         for letra in listaDibujo:
             print(letra, end=' ')
+            contador -=1
+
         if len(listaDibujo) == 0 and 0 == len(listaDibujo):
             print('No hay letras incorrectas.')
         if len(listaDibujo) == len(listaDibujo) + 1:
             print('Letras diferentes.')
         if len(listaDibujo) == len(listaDibujo) + 2:
             print('No coinciden.')
-
         print()
 
         espacio = ['_'] * len(secreto)
@@ -129,6 +138,9 @@ class juegoAhorcado:
                 espacio[i] = secreto[i]
 
         print(' '.join(espacio))
+
+        print(f"Intentos : {contador}")
+
 
     def dimeLetra(self, letraRepetida):
         while True:
