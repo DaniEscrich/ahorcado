@@ -84,7 +84,7 @@ class juegoAhorcado:
         while True:
             self.dibujar(letrasIncorrectas, letrasCorrectas, secreto)
 
-            guardarLetras = self.dimeLetra(letrasIncorrectas + letrasCorrectas)
+            guardarLetras = self.dimeLetra(letrasIncorrectas + letrasCorrectas , secreto)
 
             if guardarLetras in secreto:
 
@@ -132,12 +132,18 @@ class juegoAhorcado:
 
         print(' '.join(espacio))
 
-    def dimeLetra(self, letraRepetida):
+    def dimeLetra(self, letraRepetida , secreto):
         while True:
             print('Adivina una letra.')
             adivina = input('> ').upper()
-            if len(adivina) != 1:
+            if adivina == "TERMINAR":
+                print(secreto)
+                print("Que lastima pero adios.")
+                print(f" {self.estados[6]} ")
+                quit()
+            elif len(adivina) != 1:
                 print('Introduce una única letra.')
+
             elif adivina in letraRepetida:
                 print('Esa letra ya la sabías. Elige otra vez.')
             elif not adivina.isalpha():
