@@ -2,6 +2,11 @@ import random
 
 
 class juegoAhorcado:
+
+    """
+    .. include:: MARKDOWN.md
+    Esta clase sirve dasdas
+    """
     estados = [
         r"""
      +--+
@@ -91,7 +96,11 @@ class juegoAhorcado:
 
 
     def jugar(self, nombre):
+        """
 
+        :param nombre:
+        :return:
+        """
         letrasIncorrectas = []
         letrasCorrectas = []
         secreto = random.choice(self.respuestas)
@@ -128,6 +137,13 @@ class juegoAhorcado:
 
 
     def dibujar(self, listaDibujo, letraCorrecta, secreto):
+        """
+
+        :param listaDibujo:
+        :param letraCorrecta:
+        :param secreto:
+        :return:
+        """
         contador = 6
         print(self.estados[len(listaDibujo)])
         print('La categoría es: ', self.categorias)
@@ -155,6 +171,12 @@ class juegoAhorcado:
         print(f"Intentos : {contador}")
 
     def dimeLetra(self, letraRepetida , secreto):
+        """
+
+        :param letraRepetida:
+        :param secreto:
+        :return:
+        """
         while True:
             print('Adivina una letra.')
             adivina = input('> ').upper()
