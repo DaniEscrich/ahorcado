@@ -89,7 +89,8 @@ class juegoAhorcado:
         respuestas = respuestas3
         categorias = 'MARCAS COCHE'
 
-    def jugar(self):
+
+    def jugar(self, nombre):
 
         letrasIncorrectas = []
         letrasCorrectas = []
@@ -110,10 +111,11 @@ class juegoAhorcado:
                         acierto = False
                         break
                 if acierto:
-                    print(self.salvado[0], '\n''¡Bien hecho! la palabra secreta es :', secreto, '\n' 'Has ganado!')
+                    print(self.salvado[0], '\n''¡Bien hecho! la palabra secreta es :', secreto, '\n' 'Has ganado!' , nombre)
                     break
             else:
                 letrasIncorrectas.append(guardarLetras)
+
 
                 if len(letrasIncorrectas) == len(self.estados) - 1:
                     self.dibujar(letrasIncorrectas, letrasCorrectas, secreto)
@@ -121,21 +123,26 @@ class juegoAhorcado:
                     print('La palabra era "{}"'.format(secreto))
                     break
 
+
+
+
+
     def dibujar(self, listaDibujo, letraCorrecta, secreto):
+        contador = 6
         print(self.estados[len(listaDibujo)])
         print('La categoría es: ', self.categorias)
         print()
-
         print('Letras incorrectas: ', end='')
         for letra in listaDibujo:
             print(letra, end=' ')
+            contador -=1
+
         if len(listaDibujo) == 0 and 0 == len(listaDibujo):
             print('No hay letras incorrectas.')
         if len(listaDibujo) == len(listaDibujo) + 1:
             print('Letras diferentes.')
         if len(listaDibujo) == len(listaDibujo) + 2:
             print('No coinciden.')
-
         print()
 
         espacio = ['_'] * len(secreto)
@@ -145,6 +152,7 @@ class juegoAhorcado:
                 espacio[i] = secreto[i]
 
         print(' '.join(espacio))
+        print(f"Intentos : {contador}")
 
     def dimeLetra(self, letraRepetida , secreto):
         while True:
@@ -168,5 +176,6 @@ class juegoAhorcado:
 
 
 if __name__ == '__main__':
+    nombre = input("Dime tu nombre")
     juego1 = juegoAhorcado()
-    juego1.jugar()
+    juego1.jugar(nombre)
