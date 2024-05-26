@@ -72,10 +72,8 @@ class juegoAhorcado:
 
     categorias = 'FRUTAS'
     respuestas = ('PERA PLATANO UVA MANZANA MELOCOTON KIWI ALBARICOQUE CEREZA CIRUELA FRESA GRANADA HIGO LIMA LIMON '
-                  'MANDARINA'
-                  'NARANJA MELON MORA NISPERO PIÑA POMELO SANDIA ').split()
-
-    def jugar(self):
+                  'MANDARINA NARANJA MELON MORA NISPERO PIÑA POMELO SANDIA ').split()
+    def jugar(self, nombre):
 
         letrasIncorrectas = []
         letrasCorrectas = []
@@ -96,7 +94,7 @@ class juegoAhorcado:
                         acierto = False
                         break
                 if acierto:
-                    print(self.salvado[0], '\n''¡Bien hecho! la palabra secreta es :', secreto, '\n' 'Has ganado!')
+                    print(self.salvado[0], '\n''¡Bien hecho! la palabra secreta es :', secreto, '\n' 'Has ganado!' , nombre)
                     break
             else:
                 letrasIncorrectas.append(guardarLetras)
@@ -148,5 +146,6 @@ class juegoAhorcado:
 
 
 if __name__ == '__main__':
+    nombre = input("Dime tu nombre")
     juego1 = juegoAhorcado()
-    juego1.jugar()
+    juego1.jugar(nombre)
