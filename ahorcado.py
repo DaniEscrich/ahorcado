@@ -70,10 +70,24 @@ class juegoAhorcado:
     / \ |
     ====="""]
 
-    categorias = 'FRUTAS'
-    respuestas = ('PERA PLATANO UVA MANZANA MELOCOTON KIWI ALBARICOQUE CEREZA CIRUELA FRESA GRANADA HIGO LIMA LIMON '
-                  'MANDARINA'
-                  'NARANJA MELON MORA NISPERO PIÑA POMELO SANDIA ').split()
+    categorias = ''
+    respuestas1 = ('PERA PLATANO UVA MANZANA MELOCOTON KIWI ALBARICOQUE CEREZA CIRUELA FRESA GRANADA HIGO LIMA LIMON '
+                  'MANDARINA NARANJA MELON MORA NISPERO PIÑA POMELO SANDIA ').split()
+    respuestas2 = ('DUDA KOVACIC MODRIC MOLDOVAN TAH AKE').split()
+    respuestas3 = ('GUFFYACOCHE BMW MERCEDES FORD PORSCHEDEAMALLAH SUBARUDEIVAN ASIERNOTIENECOCHE').split()
+
+
+    numero_aleatorio = random.randint(1, 3)
+
+    if numero_aleatorio == 1:
+        respuestas = respuestas1
+        categorias = 'FRUTAS'
+    elif numero_aleatorio == 2:
+        respuestas = respuestas2
+        categorias = 'FUTBOL'
+    else:
+        respuestas = respuestas3
+        categorias = 'MARCAS COCHE'
 
     def jugar(self):
 
